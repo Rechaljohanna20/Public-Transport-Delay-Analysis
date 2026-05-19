@@ -1816,8 +1816,7 @@ if st.button(
                     {ai_result}
                 </p>
             </div>
-            """,
-            unsafe_allow_html=True
+            """,unsafe_allow_html=True
         )
 
     else:
