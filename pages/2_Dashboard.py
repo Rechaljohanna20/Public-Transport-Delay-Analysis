@@ -20,100 +20,155 @@
 # st.markdown("""
 # <style>
 
-# /* ---- Sidebar Title ---- */
+# /* ===== MAIN APP ===== */
+# .stApp {
+#     background: linear-gradient(
+#         135deg,
+#         #0f172a 0%,
+#         #111827 50%,
+#         #1e1b4b 100%
+#     );
+#     color: #f8fafc;
+# }
+
+# /* ===== SIDEBAR ===== */
+# section[data-testid="stSidebar"] {
+#     background: #0b1120;
+#     border-right: 1px solid #312e81;
+# }
+
 # section[data-testid="stSidebar"]::before {
 #     content: "🚍 Route Analytics";
 #     display: block;
-#     margin-top: 70px;
-#     padding: 0px 20px 15px 20px;
-#     font-size: 26px;
-#     font-weight: bold;
-#     color: #e2d9f3;
-#     border-bottom: 1px solid #4a3470;
+#     padding: 22px 20px;
+#     font-size: 28px;
+#     font-weight: 700;
+#     color: white;
+#     border-bottom: 1px solid #312e81;
 # }
 
-# /* ---- Sidebar Background ---- */
-# section[data-testid="stSidebar"] {
-#     background-color: #1a0f2e;
+# /* ===== TITLES ===== */
+# h1 {
+#     font-size: 42px !important;
+#     font-weight: 800 !important;
+#     color: white !important;
 # }
 
-# /* ---- App Background ---- */
-# .stApp {
-#     background-color: #120a24;
-#     color: #e2d9f3;
+# h2, h3 {
+#     color: #c4b5fd !important;
 # }
 
-# /* ---- Metric Tiles ---- */
+# /* ===== METRIC CARDS ===== */
 # [data-testid="stMetric"] {
-#     background: linear-gradient(135deg, #2d1b5e 0%, #3d2275 100%);
-#     border: 1px solid #6b3fa0;
-#     padding: 16px;
-#     border-radius: 12px;
-#     text-align: center;
-#     box-shadow: 0 4px 15px rgba(107, 63, 160, 0.3);
+#     background: rgba(255,255,255,0.05);
+
+#     border: 1px solid rgba(139,92,246,0.35);
+
+#     backdrop-filter: blur(12px);
+
+#     padding: 20px;
+
+#     border-radius: 18px;
+
+#     box-shadow:
+#         0 8px 30px rgba(0,0,0,0.25);
+
+#     transition: all 0.3s ease;
+# }
+
+# [data-testid="stMetric"]:hover {
+#     transform: translateY(-4px);
+#     border-color: #8b5cf6;
 # }
 
 # [data-testid="stMetricLabel"] {
-#     color: #c4b0e8 !important;
-#     font-size: 0.85rem;
-#     letter-spacing: 0.05em;
-#     text-transform: uppercase;
+#     color: #d8b4fe !important;
+#     font-size: 15px !important;
 # }
 
 # [data-testid="stMetricValue"] {
-#     color: #f0eaff !important;
-#     font-weight: 700;
+#     color: white !important;
+#     font-size: 32px !important;
+#     font-weight: 700 !important;
 # }
 
-# /* ---- Headings ---- */
-# h1, h2, h3 {
-#     color: #c084fc !important;
-# }
-
-# /* ---- Plotly Chart Container ---- */
+# /* ===== CHARTS ===== */
 # div[data-testid="stPlotlyChart"] {
-#     background: linear-gradient(135deg, #1e0f3d 0%, #2a1555 100%);
-#     padding: 10px;
-#     border-radius: 14px;
-#     border: 1px solid #4a3470;
-#     box-shadow: 0 4px 20px rgba(90, 40, 160, 0.2);
+#     background: rgba(17,24,39,0.75);
+
+#     border: 1px solid rgba(139,92,246,0.2);
+
+#     border-radius: 18px;
+
+#     padding: 12px;
+
+#     margin-top: 10px;
+
+#     box-shadow:
+#         0 8px 25px rgba(0,0,0,0.25);
 # }
 
-# /* ---- Sidebar multiselect labels ---- */
-# .stMultiSelect label, .stMultiSelect span {
-#     color: #c4b0e8 !important;
+# /* ===== BUTTONS ===== */
+# .stButton > button {
+#     background: linear-gradient(
+#         135deg,
+#         #7c3aed,
+#         #8b5cf6
+#     );
+
+#     color: white;
+
+#     border: none;
+
+#     border-radius: 12px;
+
+#     padding: 10px 20px;
+
+#     font-weight: 600;
 # }
 
-# /* ---- Sidebar filter pills ---- */
+# /* ===== INPUT BOX ===== */
+# .stTextInput input {
+#     background-color: #111827 !important;
+#     color: white !important;
+
+#     border: 1px solid #7c3aed !important;
+
+#     border-radius: 10px !important;
+# }
+
+# /* ===== MULTISELECT ===== */
+# [data-baseweb="select"] {
+#     background-color: #111827 !important;
+# }
+
 # [data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-#     background-color: #5b21b6 !important;
-#     color: #f0eaff !important;
+#     background-color: #7c3aed !important;
+#     color: white !important;
 # }
 
-# /* ---- Divider ---- */
+# /* ===== DIVIDER ===== */
 # hr {
-#     border-color: #4a3470 !important;
+#     border-color: rgba(255,255,255,0.08);
 # }
 
-# /* ---- General text ---- */
-# p, span, label {
-#     color: #d8cef0;
-# }
-
-# /* ---- Caption ---- */
-# .stCaption {
-#     color: #9d86c4 !important;
+# /* ===== DATAFRAME ===== */
+# [data-testid="stDataFrame"] {
+#     border-radius: 16px;
+#     overflow: hidden;
 # }
 
 # </style>
 # """, unsafe_allow_html=True)
+
+# st.write(" ")
 
 # # ======================================================
 # # LOAD DATA
 # # ======================================================
 
 # trips = pd.read_excel("data/Fact_Trips_Cleaned.xlsx")
-# routes = pd.read_excel("data/Dim_Routes_cleaned.xlsx")
+# routes = pd.read_excel("data/Dim_Routes_Cleaned.xlsx")
 
 # # ======================================================
 # # DATA CLEANING
@@ -217,7 +272,7 @@
 # k1.metric("Trips", f"{trip_count}")
 # k2.metric("OTP %", f"{otp:.1f}%")
 # k3.metric("Avg Delay", f"{avg_delay:.1f} mins")
-# k4.metric("Network Health", f"{network_health:.1f}%")
+# k4.metric("Overall Performance", f"{network_health:.1f}%")
 
 # st.divider()
 
@@ -404,8 +459,6 @@
 
 
 
-
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -419,92 +472,128 @@ st.set_page_config(
     page_title="Operational Dashboard",
     layout="wide"
 )
+
 st.write(" ")
 
 # ======================================================
-# DARK VIOLET THEME
+# PROFESSIONAL DARK THEME
 # ======================================================
 
 st.markdown("""
 <style>
 
-/* ---- Sidebar Title ---- */
+/* ===== MAIN APP ===== */
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #111827 50%,
+        #1e1b4b 100%
+    );
+    color: #f8fafc;
+}
+
+/* ===== SIDEBAR ===== */
+section[data-testid="stSidebar"] {
+    background: #0b1120;
+    border-right: 1px solid #312e81;
+}
+
 section[data-testid="stSidebar"]::before {
     content: "🚍 Route Analytics";
     display: block;
-    margin-top: 70px;
-    padding: 0px 20px 15px 20px;
-    font-size: 26px;
-    font-weight: bold;
-    color: #e2d9f3;
-    border-bottom: 1px solid #4a3470;
+    padding: 22px 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    border-bottom: 1px solid #312e81;
 }
 
-
-
-/* ---- App Background ---- */
-.stApp {
-    color: #e2d9f3;
+/* ===== TITLES ===== */
+h1 {
+    font-size: 42px !important;
+    font-weight: 800 !important;
+    color: white !important;
 }
 
-/* ---- Metric Tiles ---- */
+h2, h3 {
+    color: #c4b5fd !important;
+}
+
+/* ===== METRIC CARDS ===== */
 [data-testid="stMetric"] {
-    border: 1px solid #6b3fa0;
-    padding: 16px;
-    border-radius: 12px;
-    text-align: center;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(139,92,246,0.25);
+
+    backdrop-filter: blur(12px);
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.25);
+
+    transition: all 0.3s ease;
+}
+
+[data-testid="stMetric"]:hover {
+
+    transform: translateY(-3px);
+
+    border-color: #8b5cf6;
 }
 
 [data-testid="stMetricLabel"] {
-    color: #c4b0e8 !important;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+
+    color: #d8b4fe !important;
+
+    font-size: 15px !important;
 }
 
 [data-testid="stMetricValue"] {
-    color: #f0eaff !important;
-    font-weight: 700;
+
+    color: white !important;
+
+    font-size: 32px !important;
+
+    font-weight: 700 !important;
 }
 
-/* ---- Headings ---- */
-h1, h2, h3 {
-    color: #c084fc !important;
-}
-
-/* ---- Plotly Chart Container ---- */
+/* ===== CHART CONTAINER ===== */
 div[data-testid="stPlotlyChart"] {
-    background: linear-gradient(135deg, #1e0f3d 0%, #2a1555 100%);
-    padding: 10px;
-    border-radius: 14px;
-    border: 1px solid #4a3470;
-    box-shadow: 0 4px 20px rgba(90, 40, 160, 0.2);
+
+    background: rgba(17,24,39,0.75);
+
+    border: 1px solid rgba(139,92,246,0.15);
+
+    border-radius: 18px;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
 }
 
-/* ---- Sidebar multiselect labels ---- */
-.stMultiSelect label, .stMultiSelect span {
-    color: #c4b0e8 !important;
+/* ===== FILTERS ===== */
+[data-baseweb="select"] {
+    background-color: #111827 !important;
 }
 
-/* ---- Sidebar filter pills ---- */
 [data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-    background-color: #5b21b6 !important;
-    color: #f0eaff !important;
+
+    background-color: #7c3aed !important;
+
+    color: white !important;
 }
 
-/* ---- Divider ---- */
+/* ===== DIVIDER ===== */
 hr {
-    border-color: #4a3470 !important;
-}
-
-/* ---- General text ---- */
-p, span, label {
-    color: #d8cef0;
-}
-
-/* ---- Caption ---- */
-.stCaption {
-    color: #9d86c4 !important;
+    border-color: rgba(255,255,255,0.08);
 }
 
 </style>
@@ -514,8 +603,13 @@ p, span, label {
 # LOAD DATA
 # ======================================================
 
-trips = pd.read_excel("data/Fact_Trips_Cleaned.xlsx")
-routes = pd.read_excel("data/Dim_Routes_cleaned.xlsx")
+trips = pd.read_excel(
+    "data/Fact_Trips_Cleaned.xlsx"
+)
+
+routes = pd.read_excel(
+    "data/Dim_Routes_Cleaned.xlsx"
+)
 
 # ======================================================
 # DATA CLEANING
@@ -550,32 +644,53 @@ trips["Status"] = (
 )
 
 # ======================================================
-# MERGE ROUTE DATA
+# MERGE DATA
 # ======================================================
 
 if "RouteID" in routes.columns:
-    df = trips.merge(routes, on="RouteID", how="left")
+
+    df = trips.merge(
+        routes,
+        on="RouteID",
+        how="left"
+    )
+
 else:
+
     df = trips.copy()
 
 # ======================================================
 # SIDEBAR FILTERS
 # ======================================================
 
-vehicle_options = sorted(df["VehicleType"].dropna().unique())
-weather_options = sorted(df["WeatherCondition"].dropna().unique())
-status_options = sorted(df["Status"].dropna().unique())
+vehicle_options = sorted(
+    df["VehicleType"].dropna().unique()
+)
+
+weather_options = sorted(
+    df["WeatherCondition"].dropna().unique()
+)
+
+status_options = sorted(
+    df["Status"].dropna().unique()
+)
 
 vehicle_filter = st.sidebar.multiselect(
-    "Vehicle Type", vehicle_options, default=vehicle_options, key="vehicle_filter"
+    "Vehicle Type",
+    vehicle_options,
+    default=vehicle_options
 )
 
 weather_filter = st.sidebar.multiselect(
-    "Weather Condition", weather_options, default=weather_options, key="weather_filter"
+    "Weather Condition",
+    weather_options,
+    default=weather_options
 )
 
 status_filter = st.sidebar.multiselect(
-    "Trip Status", status_options, default=status_options, key="status_filter"
+    "Trip Status",
+    status_options,
+    default=status_options
 )
 
 # ======================================================
@@ -589,11 +704,12 @@ filtered_df = df[
 ].copy()
 
 if filtered_df.empty:
+
     st.warning("No data available.")
     st.stop()
 
 # ======================================================
-# PAGE TITLE
+# TITLE
 # ======================================================
 
 st.title("📊 Operational Transport Dashboard")
@@ -611,15 +727,37 @@ st.divider()
 # ======================================================
 
 avg_delay = filtered_df["Delay_Minutes"].mean()
-otp = ((filtered_df["Status"] == "On-Time").sum() / len(filtered_df)) * 100
+
+otp = (
+    (filtered_df["Status"] == "On-Time").sum()
+    / len(filtered_df)
+) * 100
+
 network_health = max(0, 100 - avg_delay)
+
 trip_count = len(filtered_df)
 
 k1, k2, k3, k4 = st.columns(4)
-k1.metric("Trips", f"{trip_count}")
-k2.metric("OTP %", f"{otp:.1f}%")
-k3.metric("Avg Delay", f"{avg_delay:.1f} mins")
-k4.metric("Overall Performance", f"{network_health:.1f}%")
+
+k1.metric(
+    "Trips",
+    f"{trip_count}"
+)
+
+k2.metric(
+    "OTP %",
+    f"{otp:.1f}%"
+)
+
+k3.metric(
+    "Avg Delay",
+    f"{avg_delay:.1f} mins"
+)
+
+k4.metric(
+    "Overall Performance",
+    f"{network_health:.1f}%"
+)
 
 st.divider()
 
@@ -628,66 +766,104 @@ st.divider()
 # ======================================================
 
 hourly_delay = (
-    filtered_df.groupby("Hour")["Delay_Minutes"].mean().reset_index()
+    filtered_df.groupby("Hour")[
+        "Delay_Minutes"
+    ]
+    .mean()
+    .reset_index()
 )
 
 route_delay = (
-    filtered_df.groupby("RouteID")["Delay_Minutes"]
-    .mean().reset_index()
-    .sort_values(by="Delay_Minutes", ascending=False)
+    filtered_df.groupby("RouteID")[
+        "Delay_Minutes"
+    ]
+    .mean()
+    .reset_index()
+    .sort_values(
+        by="Delay_Minutes",
+        ascending=False
+    )
 )
 
 weather_delay = (
-    filtered_df.groupby("WeatherCondition")["Delay_Minutes"].mean().reset_index()
+    filtered_df.groupby("WeatherCondition")[
+        "Delay_Minutes"
+    ]
+    .mean()
+    .reset_index()
 )
 
 congestion_delay = (
-    filtered_df.groupby("CongestionLevel")["Delay_Minutes"].mean().reset_index()
+    filtered_df.groupby("CongestionLevel")[
+        "Delay_Minutes"
+    ]
+    .mean()
+    .reset_index()
 )
 
 vehicle_data = (
-    filtered_df.groupby("VehicleType").size().reset_index(name="Trips")
+    filtered_df.groupby("VehicleType")
+    .size()
+    .reset_index(name="Trips")
 )
 
 district_data = (
-    filtered_df.groupby(["Origin", "Destination", "Status", "VehicleType"])
-    .size().reset_index(name="Trips")
+    filtered_df.groupby(
+        [
+            "Origin",
+            "Destination",
+            "Status",
+            "VehicleType"
+        ]
+    )
+    .size()
+    .reset_index(name="Trips")
 )
 
 filtered_df["Day"] = pd.to_datetime(
-    filtered_df["Date"], errors="coerce"
+    filtered_df["Date"],
+    errors="coerce"
 ).dt.day_name()
 
 heatmap_data = filtered_df.pivot_table(
-    values="Delay_Minutes", index="Day", columns="Hour", aggfunc="mean"
+    values="Delay_Minutes",
+    index="Day",
+    columns="Hour",
+    aggfunc="mean"
 )
 
 # ======================================================
-# VIOLET COLOR PALETTE
+# COMMON LAYOUT
 # ======================================================
 
-VIOLET_SEQ = [
-    "#3b0764", "#5b21b6", "#7c3aed", "#a855f7",
-    "#c084fc", "#d8b4fe", "#ede9fe"
-]
-
-BG_TILE   = "#1e0f3d"
-BG_PLOT   = "#150b2e"
-FONT_CLR  = "#e2d9f3"
-BORDER    = "#4a3470"
-
 COMMON_LAYOUT = dict(
+
     height=320,
-    paper_bgcolor=BG_TILE,
-    plot_bgcolor=BG_PLOT,
-    font_color=FONT_CLR,
-    margin=dict(l=10, r=10, t=45, b=10),
-    title_font=dict(color="#c084fc", size=14),
+
+    paper_bgcolor="#1e0f3d",
+
+    plot_bgcolor="#150b2e",
+
+    font=dict(
+        color="#e2d9f3"
+    ),
+
+    title_font=dict(
+        color="#c084fc",
+        size=15
+    ),
+
+    margin=dict(
+        l=10,
+        r=10,
+        t=50,
+        b=10
+    ),
+
     legend=dict(
         bgcolor="rgba(30,15,61,0.7)",
-        bordercolor=BORDER,
-        borderwidth=1,
-        font=dict(color=FONT_CLR)
+        bordercolor="#4a3470",
+        borderwidth=1
     )
 )
 
@@ -695,82 +871,182 @@ COMMON_LAYOUT = dict(
 # CHARTS
 # ======================================================
 
-# Hourly Delay Trend
+# ======================================================
+# 1. HOURLY DELAY TREND (CYAN)
+# ======================================================
+
 fig_line = px.line(
-    hourly_delay, x="Hour", y="Delay_Minutes",
-    markers=True, title="⏰ Hourly Delay Trend",
-    color_discrete_sequence=["#a855f7"]
+    hourly_delay,
+    x="Hour",
+    y="Delay_Minutes",
+    markers=True,
+    title="⏰ Hourly Delay Trend"
 )
+
 fig_line.update_traces(
-    line=dict(width=2.5),
-    marker=dict(size=7, color="#c084fc", line=dict(color="#7c3aed", width=1.5))
+    line=dict(
+        color="#06b6d4",
+        width=3
+    ),
+    marker=dict(
+        color="#67e8f9",
+        size=8,
+        line=dict(
+            color="#0891b2",
+            width=2
+        )
+    )
 )
-fig_line.update_layout(**COMMON_LAYOUT)
-fig_line.update_xaxes(gridcolor="#2d1b5e", zerolinecolor="#2d1b5e")
-fig_line.update_yaxes(gridcolor="#2d1b5e", zerolinecolor="#2d1b5e")
 
-# Top Delayed Routes
+# ======================================================
+# 2. TOP DELAYED ROUTES (RED)
+# ======================================================
+
 fig_bar = px.bar(
-    route_delay.head(10), x="RouteID", y="Delay_Minutes",
-    color="Delay_Minutes", title="🚦 Top Delayed Routes",
-    color_continuous_scale=VIOLET_SEQ
+    route_delay.head(10),
+    x="RouteID",
+    y="Delay_Minutes",
+    title="🚦 Top Delayed Routes"
 )
-fig_bar.update_layout(**COMMON_LAYOUT)
-fig_bar.update_xaxes(gridcolor="#2d1b5e")
-fig_bar.update_yaxes(gridcolor="#2d1b5e")
 
-# Weather Impact
+fig_bar.update_traces(
+    marker_color=[
+        "#dc2626",
+        "#ef4444",
+        "#f87171",
+        "#fca5a5",
+        "#dc2626",
+        "#ef4444",
+        "#f87171",
+        "#fca5a5",
+        "#dc2626",
+        "#ef4444"
+    ]
+)
+
+# ======================================================
+# 3. WEATHER IMPACT (BLUE)
+# ======================================================
+
 fig_weather = px.bar(
-    weather_delay, x="WeatherCondition", y="Delay_Minutes",
-    color="WeatherCondition", title="🌦️ Weather Impact",
-    color_discrete_sequence=VIOLET_SEQ
+    weather_delay,
+    x="WeatherCondition",
+    y="Delay_Minutes",
+    title="🌦️ Weather Impact"
 )
-fig_weather.update_layout(**COMMON_LAYOUT)
-fig_weather.update_xaxes(gridcolor="#2d1b5e")
-fig_weather.update_yaxes(gridcolor="#2d1b5e")
 
-# Congestion Distribution
+fig_weather.update_traces(
+    marker_color=[
+        "#2563eb",
+        "#3b82f6",
+        "#60a5fa",
+        "#93c5fd",
+        "#2563eb"
+    ]
+)
+
+# ======================================================
+# 4. CONGESTION DISTRIBUTION (ORANGE)
+# ======================================================
+
 fig_congestion = px.pie(
-    congestion_delay, names="CongestionLevel", values="Delay_Minutes",
+    congestion_delay,
+    names="CongestionLevel",
+    values="Delay_Minutes",
     title="🚗 Congestion Distribution",
-    color_discrete_sequence=VIOLET_SEQ,
-    hole=0.35
+    hole=0.4
 )
+
 fig_congestion.update_traces(
-    textfont_color=FONT_CLR,
-    marker=dict(line=dict(color=BG_TILE, width=2))
+    marker=dict(
+        colors=[
+            "#ea580c",
+            "#f97316",
+            "#fb923c",
+            "#fdba74"
+        ]
+    )
 )
-fig_congestion.update_layout(**COMMON_LAYOUT)
 
-# Vehicle Distribution
+# ======================================================
+# 5. VEHICLE DISTRIBUTION (GREEN)
+# ======================================================
+
 fig_vehicle = px.bar(
-    vehicle_data, x="VehicleType", y="Trips",
-    color="VehicleType", title="🚍 Vehicle Distribution",
-    color_discrete_sequence=VIOLET_SEQ
+    vehicle_data,
+    x="VehicleType",
+    y="Trips",
+    title="🚍 Vehicle Distribution"
 )
-fig_vehicle.update_layout(**COMMON_LAYOUT)
-fig_vehicle.update_xaxes(gridcolor="#2d1b5e")
-fig_vehicle.update_yaxes(gridcolor="#2d1b5e")
 
-# Delay Heatmap
+fig_vehicle.update_traces(
+    marker_color=[
+        "#059669",
+        "#10b981",
+        "#34d399",
+        "#6ee7b7"
+    ]
+)
+
+# ======================================================
+# 6. DELAY HEATMAP (MULTICOLOR)
+# ======================================================
+
 fig_heatmap = px.imshow(
-    heatmap_data, text_auto=True, aspect="auto",
+    heatmap_data,
+    text_auto=True,
+    aspect="auto",
     title="🔥 Delay Heatmap",
-    color_continuous_scale=VIOLET_SEQ
+    color_continuous_scale="Turbo"
 )
-fig_heatmap.update_layout(**COMMON_LAYOUT)
 
-# District-wise Map
+# ======================================================
+# 7. DISTRICT MAP (PURPLE)
+# ======================================================
+
 fig_map = px.scatter(
-    district_data, x="Origin", y="Destination",
-    size="Trips", color="Status", symbol="VehicleType",
+    district_data,
+    x="Origin",
+    y="Destination",
+    size="Trips",
+    color="Status",
+    symbol="VehicleType",
     hover_data=["Trips", "VehicleType"],
     title="🗺️ District-wise Delay & Vehicle Analysis",
-    color_discrete_sequence=VIOLET_SEQ
+    color_discrete_map={
+        "On-Time": "#38bdf8",
+
+        "Delayed": "#818cf8",
+
+        "Cancelled": "#c084fc"
+    }
 )
-fig_map.update_layout(**COMMON_LAYOUT)
-fig_map.update_xaxes(gridcolor="#2d1b5e")
-fig_map.update_yaxes(gridcolor="#2d1b5e")
+
+# ======================================================
+# APPLY COMMON STYLING
+# ======================================================
+
+all_figs = [
+    fig_line,
+    fig_bar,
+    fig_weather,
+    fig_congestion,
+    fig_vehicle,
+    fig_heatmap,
+    fig_map
+]
+
+for fig in all_figs:
+
+    fig.update_layout(**COMMON_LAYOUT)
+
+    fig.update_xaxes(
+        gridcolor="#2d1b5e"
+    )
+
+    fig.update_yaxes(
+        gridcolor="#2d1b5e"
+    )
 
 # ======================================================
 # DASHBOARD LAYOUT
@@ -778,28 +1054,58 @@ fig_map.update_yaxes(gridcolor="#2d1b5e")
 
 # ROW 1
 r1c1, r1c2, r1c3 = st.columns(3)
+
 with r1c1:
-    st.plotly_chart(fig_line, use_container_width=True)
+    st.plotly_chart(
+        fig_line,
+        use_container_width=True
+    )
+
 with r1c2:
-    st.plotly_chart(fig_weather, use_container_width=True)
+    st.plotly_chart(
+        fig_weather,
+        use_container_width=True
+    )
+
 with r1c3:
-    st.plotly_chart(fig_vehicle, use_container_width=True)
+    st.plotly_chart(
+        fig_vehicle,
+        use_container_width=True
+    )
 
 # ROW 2
 r2c1, r2c2, r2c3 = st.columns(3)
+
 with r2c1:
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(
+        fig_bar,
+        use_container_width=True
+    )
+
 with r2c2:
-    st.plotly_chart(fig_congestion, use_container_width=True)
+    st.plotly_chart(
+        fig_congestion,
+        use_container_width=True
+    )
+
 with r2c3:
-    st.plotly_chart(fig_heatmap, use_container_width=True)
+    st.plotly_chart(
+        fig_heatmap,
+        use_container_width=True
+    )
 
 # ROW 3
-st.plotly_chart(fig_map, use_container_width=True)
+st.plotly_chart(
+    fig_map,
+    use_container_width=True
+)
 
 # ======================================================
 # FOOTER
 # ======================================================
 
 st.markdown("---")
-st.caption("🚍 Operational Analytics Dashboard • Public Transport Delay Analysis")
+
+st.caption(
+    "🚍 Operational Analytics Dashboard • Public Transport Delay Analysis"
+)
