@@ -1796,8 +1796,10 @@ if st.button(
                 filtered_df
             )
 
+        # ✅ FIX: Render the container with HTML, but use st.markdown
+        # for the AI text separately to avoid HTML injection issues
         st.markdown(
-            f"""
+            """
             <div style="
                 background:rgba(91,33,182,0.15);
                 border:1px solid rgba(139,92,246,0.25);
@@ -1808,15 +1810,15 @@ if st.button(
                 <h3 style="color:#c4b5fd;">
                     🤖 AI Insights
                 </h3>
-
-                <p style="
-                    color:#f8fafc;
-                    line-height:1.8;
-                ">
-                    {ai_result}
-                </p>
             </div>
-            """,unsafe_allow_html=True
+            """,
+            unsafe_allow_html=True
+        )
+
+        # ✅ Render AI text safely outside the HTML block
+        st.markdown(
+            ai_result,
+            unsafe_allow_html=False
         )
 
     else:
