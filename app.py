@@ -11,7 +11,7 @@
 # # ======================================================
 
 # client = Groq(
-#     api_key= "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"
+#     api_key= ""
 # )
 
 # # ======================================================
