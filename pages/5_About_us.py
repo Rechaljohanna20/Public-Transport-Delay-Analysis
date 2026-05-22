@@ -1,7 +1,12 @@
-import streamlit as st
+mport streamlit as st
 
-st.set_page_config(page_title="About us",layout="wide")
+st.set_page_config(
+    page_title="Public Transport Delay Analysis",
+    layout="wide"
+)
+
 st.write(" ")
+
 st.markdown("""
 <style>
 
@@ -34,146 +39,83 @@ section[data-testid="stSidebar"]::before {
 
 /* ===== TITLES ===== */
 h1 {
-    font-size: 42px !important;
+    font-size: 52px !important;
     font-weight: 800 !important;
     color: white !important;
+    text-align: center;
+    margin-top: 70px;
 }
 
-h2, h3 {
+h3 {
     color: #c4b5fd !important;
-}
-
-/* ===== METRIC CARDS ===== */
-[data-testid="stMetric"] {
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid rgba(139,92,246,0.35);
-
-    backdrop-filter: blur(12px);
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.25);
-
-    transition: all 0.3s ease;
-}
-
-[data-testid="stMetric"]:hover {
-    transform: translateY(-4px);
-    border-color: #8b5cf6;
-}
-
-[data-testid="stMetricLabel"] {
-    color: #d8b4fe !important;
-    font-size: 15px !important;
-}
-
-[data-testid="stMetricValue"] {
-    color: white !important;
-    font-size: 32px !important;
-    font-weight: 700 !important;
-}
-
-/* ===== CHARTS ===== */
-div[data-testid="stPlotlyChart"] {
-    background: rgba(17,24,39,0.75);
-
-    border: 1px solid rgba(139,92,246,0.2);
-
-    border-radius: 18px;
-
-    padding: 12px;
-
+    text-align: center;
     margin-top: 10px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.25);
 }
 
-/* ===== BUTTONS ===== */
-.stButton > button {
-    background: linear-gradient(
-        135deg,
-        #7c3aed,
-        #8b5cf6
-    );
-
-    color: white;
-
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 10px 20px;
-
-    font-weight: 600;
+/* ===== TEXT ===== */
+.center-text {
+    text-align: center;
+    font-size: 18px;
+    color: #d1d5db;
+    max-width: 950px;
+    margin: auto;
+    line-height: 1.8;
+    padding-top: 25px;
 }
 
-/* ===== INPUT BOX ===== */
-.stTextInput input {
-    background-color: #111827 !important;
-    color: white !important;
-
-    border: 1px solid #7c3aed !important;
-
-    border-radius: 10px !important;
+/* ===== FEATURE SECTION ===== */
+.feature-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(139,92,246,0.25);
+    border-radius: 24px;
+    padding: 50px;
+    margin-top: 60px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
-/* ===== MULTISELECT ===== */
-[data-baseweb="select"] {
-    background-color: #111827 !important;
-}
-
-[data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-    background-color: #7c3aed !important;
-    color: white !important;
-}
-
-/* ===== DIVIDER ===== */
-hr {
-    border-color: rgba(255,255,255,0.08);
-}
-
-/* ===== DATAFRAME ===== */
-[data-testid="stDataFrame"] {
-    border-radius: 16px;
-    overflow: hidden;
+/* ===== HIGHLIGHTS ===== */
+.highlight {
+    text-align: center;
+    font-size: 17px;
+    color: #e5e7eb;
+    padding-top: 15px;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-st.write("")
-# st.title("About us page")
-
-
-# st.header("Summary")
-st.header("📌 About the Project")
+# ======================================================
+# LANDING PAGE CONTENT
+# ======================================================
 
 st.markdown("""
-The **Public Transport Delay Analysis System**
-is designed to analyze, monitor, and visualize
-delays in buses and trains using operational
-transport datasets.
+<div class="feature-box">
 
-The platform transforms transport data into
-interactive analytics dashboards that help:
+<h1>Public Transport Delay Analysis</h1>
 
-- Analyze delay trends
-- Detect congestion patterns
-- Improve route efficiency
-- Support smarter travel planning
-- Generate AI-powered operational insights
-""")
+<h3>
+Interactive Analytics for Monitoring Transport Delays and Operational Trends
+</h3>
 
-c1, c2, c3, c4 = st.columns(4)
+<p class="center-text">
+Welcome to the Public Transport Delay Analysis.  
+This application helps users analyze delay behavior across public transportation systems using operational and historical transport data.
+</p>
 
-c1.metric("Routes", "120+")
-c2.metric("Trips", "25K+")
-c3.metric("Avg Delay", "7 mins")
-c4.metric("OTP", "89%")
+<p class="center-text">
+Explore route performance, traffic congestion patterns, peak-hour disruptions, and time-based delay trends through interactive visualizations and analytics modules.
+</p>
 
-st.divider()
+<p class="highlight">
+📊 Delay Insights &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+🚦 Congestion Analysis &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+🚌 Route Performance Monitoring
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.caption("Public Transport Delay Analytics ")
