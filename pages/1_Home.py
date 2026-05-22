@@ -1,8 +1,12 @@
 import streamlit as st
 
-st.set_page_config(page_title="Home page ",layout="wide")
+st.set_page_config(
+    page_title="Dashboard Home",
+    layout="wide"
+)
 
 st.write(" ")
+
 st.markdown("""
 <style>
 
@@ -44,21 +48,21 @@ h2, h3 {
     color: #c4b5fd !important;
 }
 
+/* ===== INFO BOX ===== */
+div[data-testid="stAlert"] {
+    border-radius: 14px;
+    border: 1px solid rgba(139,92,246,0.25);
+    background: rgba(255,255,255,0.04);
+}
+
 /* ===== METRIC CARDS ===== */
 [data-testid="stMetric"] {
     background: rgba(255,255,255,0.05);
-
     border: 1px solid rgba(139,92,246,0.35);
-
     backdrop-filter: blur(12px);
-
     padding: 20px;
-
     border-radius: 18px;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.25);
-
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
 }
 
@@ -78,128 +82,76 @@ h2, h3 {
     font-weight: 700 !important;
 }
 
-/* ===== CHARTS ===== */
-div[data-testid="stPlotlyChart"] {
-    background: rgba(17,24,39,0.75);
-
-    border: 1px solid rgba(139,92,246,0.2);
-
-    border-radius: 18px;
-
-    padding: 12px;
-
-    margin-top: 10px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.25);
-}
-
-/* ===== BUTTONS ===== */
-.stButton > button {
-    background: linear-gradient(
-        135deg,
-        #7c3aed,
-        #8b5cf6
-    );
-
-    color: white;
-
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 10px 20px;
-
-    font-weight: 600;
-}
-
-/* ===== INPUT BOX ===== */
-.stTextInput input {
-    background-color: #111827 !important;
-    color: white !important;
-
-    border: 1px solid #7c3aed !important;
-
-    border-radius: 10px !important;
-}
-
-/* ===== MULTISELECT ===== */
-[data-baseweb="select"] {
-    background-color: #111827 !important;
-}
-
-[data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-    background-color: #7c3aed !important;
-    color: white !important;
-}
-
 /* ===== DIVIDER ===== */
 hr {
     border-color: rgba(255,255,255,0.08);
 }
 
-/* ===== DATAFRAME ===== */
-[data-testid="stDataFrame"] {
-    border-radius: 16px;
-    overflow: hidden;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
-st.write(" ")
+# ======================================================
+# HEADER
+# ======================================================
 
-# st.sidebar.divider()
-st.header("Project Overview")
-st.write("""The **Public Transport Delay Analysis System** is designed to monitor,
-analyze, and visualize delays in public transportation networks.
+st.title("Transport Operations Center")
 
-Using transport schedules, traffic conditions, travel timings,
-and operational data, the system provides data-driven insights
-to identify delay patterns, congestion trends, and route performance.
-
-Dashboards and analytical tools help improve transport
-efficiency, support smarter travel planning, and enhance overall
-commuter experience.""")
-
-st.header("Objectives")
-st.markdown("""
-- Analyze public transport delays
-- Identify peak congestion hours
-- Compare route performances
-- Improve transport efficiency
-- Support better travel planning
+st.write("""
+Monitor transport operations, track delay behavior, and view key performance indicators across the public transportation network.
 """)
+
 st.divider()
 
+# ======================================================
+# SYSTEM OVERVIEW
+# ======================================================
 
-st.header("Key Features")
+st.header("System Overview")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    # st.info("Interactive Dashboard")
-    st.info("Route-wise Delay Analysis")
-    st.info("Peak Traffic Insights")
-
+    st.info("📊 Route Performance Status")
+    st.info("🚦 Traffic Congestion Overview")
+    st.info("⏱ Peak-Hour Activity")
 
 with col2:
-    st.info("Delay Trend Visualization")
-    st.info(" Delay Predictions")
+    st.info("📈 Delay Monitoring")
+    st.info("🌦 Weather Condition Impact")
+    st.info("🚌 Operational Performance")
 
-st.write("")
-st.write("")
+st.divider()
 
-d1, c2, c3, c4 = st.columns(4, gap="large")
+# ======================================================
+# QUICK METRICS
+# ======================================================
+
+st.header("Quick Metrics")
+
+d1, d2, d3, d4 = st.columns(4, gap="large")
 
 with d1:
-    st.metric("Active Routes", "128", "+12")
+    st.metric("Total Records", "20K+")
 
-with c2:
-    st.metric("Running Vehicles", "542", "+24")
+with d2:
+    st.metric("Analyzed Trips", "15K+")
 
-with c3:
-    st.metric("Average Delay", "7 mins", "-2 mins")
+with d3:
+    st.metric("Avg Delay Time", "7 mins")
 
-with c4:
-    st.metric("On-Time Performance", "89%", "+5%")
+with d4:
+    st.metric("On Time Performance", "89%")
+
+st.divider()
+
+# ======================================================
+# STATUS SECTION
+# ======================================================
+
+st.header("Network Status")
+
+st.write("""
+The transport monitoring system is actively tracking operational trends, delay variations, and congestion behavior across available transport routes.
+""")
+
+st.caption("Public Transport Analytics Dashboard")
