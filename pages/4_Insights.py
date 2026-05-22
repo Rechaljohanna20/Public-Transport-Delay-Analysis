@@ -117,8 +117,8 @@ df["Hour"] = pd.to_datetime(df["Time"], errors="coerce").dt.hour
 
 st.sidebar.subheader("🎛️ Filters")
 
-route_options = ["ALL"] + sorted(df["RouteID"].dropna().unique().tolist())
-route_filter  = st.sidebar.selectbox("Select Route", route_options)
+route_options  = ["ALL"] + sorted(df["RouteID"].dropna().unique().tolist())
+route_filter   = st.sidebar.selectbox("Select Route", route_options)
 vehicle_filter = st.sidebar.multiselect(
     "Vehicle Type",
     sorted(df["VehicleType"].dropna().unique()),
@@ -139,7 +139,11 @@ weather_filter = st.sidebar.multiselect(
 # FILTER DATA
 # ======================================================
 
-route_mask = df["RouteID"].isin(df["RouteID"].unique()) if route_filter == "ALL" else (df["RouteID"] == route_filter)
+route_mask = (
+    df["RouteID"].isin(df["RouteID"].unique())
+    if route_filter == "ALL"
+    else (df["RouteID"] == route_filter)
+)
 
 filtered_df = df[
     route_mask &
@@ -164,19 +168,19 @@ st.write(
 st.divider()
 
 # ======================================================
-# OVERVIEW METRICS  (whole dataset, not filtered)
+# OVERVIEW METRICS  (filtered dataset)
 # ======================================================
 
 m1, m2, m3, m4 = st.columns(4)
 
 with m1:
-    st.metric("Total Trips", len(trips))
+    st.metric("Total Trips", len(filtered_df))
 with m2:
-    st.metric("Total Routes", routes["RouteID"].nunique())
+    st.metric("Total Routes", filtered_df["RouteID"].nunique())
 with m3:
-    st.metric("Average Delay", f"{trips['Delay_Minutes'].mean():.2f} mins")
+    st.metric("Average Delay", f"{filtered_df['Delay_Minutes'].mean():.2f} mins")
 with m4:
-    ontime = ((trips["Status"] == "On-Time").sum() / len(trips)) * 100
+    ontime = ((filtered_df["Status"] == "On-Time").sum() / len(filtered_df)) * 100
     st.metric("On-Time Performance", f"{ontime:.1f}%")
 
 st.divider()
@@ -188,13 +192,13 @@ st.divider()
 fdf = filtered_df   # shorthand
 
 # --- Transport Operations ---
-avg_delay     = fdf["Delay_Minutes"].mean()
-max_delay     = fdf["Delay_Minutes"].max()
-trip_count    = len(fdf)
-otp           = ((fdf["Status"] == "On-Time").sum() / trip_count) * 100
+avg_delay  = fdf["Delay_Minutes"].mean()
+max_delay  = fdf["Delay_Minutes"].max()
+trip_count = len(fdf)
+otp        = ((fdf["Status"] == "On-Time").sum() / trip_count) * 100
 
 if "CongestionLevel" in fdf.columns:
-    top_cong = fdf.groupby("CongestionLevel")["Delay_Minutes"].mean().idxmax()
+    top_cong       = fdf.groupby("CongestionLevel")["Delay_Minutes"].mean().idxmax()
     top_cong_delay = fdf.groupby("CongestionLevel")["Delay_Minutes"].mean().max()
 else:
     top_cong = "N/A"; top_cong_delay = 0
@@ -222,8 +226,8 @@ bucket_counts = fdf["DelayBucket"].value_counts().sort_index()
 top_bucket    = bucket_counts.idxmax()
 top_bucket_n  = bucket_counts.max()
 
-extreme_n     = bucket_counts.get("50+", 0)
-low_n         = bucket_counts.get("<5", 0)
+extreme_n = bucket_counts.get("50+", 0)
+low_n     = bucket_counts.get("<5", 0)
 
 sev_pt1 = (
     f"The most frequent delay range on <b>{route_label}</b> is "
@@ -241,11 +245,11 @@ sev_pt3 = (
 
 # --- Time-Based ---
 if "Hour" in fdf.columns:
-    hourly      = fdf.groupby("Hour")["Delay_Minutes"].mean()
-    peak_hour   = int(hourly.idxmax())
-    peak_delay  = hourly.max()
-    stable_hour = int(hourly.idxmin())
-    stable_delay= hourly.min()
+    hourly       = fdf.groupby("Hour")["Delay_Minutes"].mean()
+    peak_hour    = int(hourly.idxmax())
+    peak_delay   = hourly.max()
+    stable_hour  = int(hourly.idxmin())
+    stable_delay = hourly.min()
 else:
     peak_hour = 8; peak_delay = avg_delay; stable_hour = 14; stable_delay = avg_delay * 0.5
 
@@ -265,14 +269,14 @@ time_pt3 = (
 
 # --- Vehicle Performance ---
 if "VehicleType" in fdf.columns:
-    veh_delay   = fdf.groupby("VehicleType")["Delay_Minutes"].mean()
-    worst_veh   = veh_delay.idxmax()
-    best_veh    = veh_delay.idxmin()
-    worst_delay = veh_delay.max()
-    best_delay  = veh_delay.min()
-    veh_counts  = fdf["VehicleType"].value_counts()
-    dominant_veh= veh_counts.idxmax()
-    dominant_n  = veh_counts.max()
+    veh_delay    = fdf.groupby("VehicleType")["Delay_Minutes"].mean()
+    worst_veh    = veh_delay.idxmax()
+    best_veh     = veh_delay.idxmin()
+    worst_delay  = veh_delay.max()
+    best_delay   = veh_delay.min()
+    veh_counts   = fdf["VehicleType"].value_counts()
+    dominant_veh = veh_counts.idxmax()
+    dominant_n   = veh_counts.max()
 else:
     worst_veh = best_veh = dominant_veh = "N/A"
     worst_delay = best_delay = dominant_n = 0
@@ -318,26 +322,26 @@ all_routes_avg = df.groupby("RouteID")["Delay_Minutes"].mean()
 network_avg    = all_routes_avg.mean()
 
 if route_filter == "ALL":
-    route_rank  = "N/A"
-    route_avg   = fdf["Delay_Minutes"].mean()
-    diff        = route_avg - network_avg
-    diff_label  = f"{abs(diff):.1f} mins {'above' if diff > 0 else 'below'}"
+    route_avg  = fdf["Delay_Minutes"].mean()
+    diff       = route_avg - network_avg
+    diff_label = f"{abs(diff):.1f} mins {'above' if diff > 0 else 'below'}"
     rte_pt1 = (
         f"Showing data across <b>all {len(all_routes_avg)} routes</b> with an overall "
         f"average delay of <b>{route_avg:.1f} mins</b> vs the network average of "
         f"<b>{network_avg:.1f} mins</b>."
     )
 else:
-    route_rank  = int(all_routes_avg.rank(ascending=False)[route_filter])
-    total_routes= len(all_routes_avg)
-    route_avg   = all_routes_avg[route_filter]
-    diff        = route_avg - network_avg
-    diff_label  = f"{abs(diff):.1f} mins {'above' if diff > 0 else 'below'}"
+    route_rank   = int(all_routes_avg.rank(ascending=False)[route_filter])
+    total_routes = len(all_routes_avg)
+    route_avg    = all_routes_avg[route_filter]
+    diff         = route_avg - network_avg
+    diff_label   = f"{abs(diff):.1f} mins {'above' if diff > 0 else 'below'}"
     rte_pt1 = (
         f"Route <b>{route_filter}</b> ranks <b>#{route_rank}</b> out of "
         f"<b>{total_routes}</b> routes by average delay, with <b>{route_avg:.1f} mins</b> "
         f"vs the network average of <b>{network_avg:.1f} mins</b>."
     )
+
 cancel_rate = ((fdf["Status"] == "Cancelled").sum() / trip_count) * 100
 
 rte_pt2 = (
@@ -372,15 +376,15 @@ left_col, right_col = st.columns(2)
 
 with left_col:
     with st.container(border=True):
-        dyn_box("🚍 Transport Operations",   [ops_pt1,  ops_pt2,  ops_pt3])
-        dyn_box("🚦 Delay Severity",         [sev_pt1,  sev_pt2,  sev_pt3])
-        dyn_box("⏰ Time-Based Observations", [time_pt1, time_pt2, time_pt3])
+        dyn_box("🚍 Transport Operations",    [ops_pt1,  ops_pt2,  ops_pt3])
+        dyn_box("🚦 Delay Severity",          [sev_pt1,  sev_pt2,  sev_pt3])
+        dyn_box("⏰ Time-Based Observations",  [time_pt1, time_pt2, time_pt3])
 
 with right_col:
     with st.container(border=True):
-        dyn_box("🚆 Vehicle Performance",        [veh_pt1,  veh_pt2,  veh_pt3])
-        dyn_box("🌦️ Weather and Traffic Impact", [wthr_pt1, wthr_pt2, wthr_pt3])
-        dyn_box("🛣️ Route Performance",          [rte_pt1,  rte_pt2,  rte_pt3])
+        dyn_box("🚆 Vehicle Performance",         [veh_pt1,  veh_pt2,  veh_pt3])
+        dyn_box("🌦️ Weather and Traffic Impact",  [wthr_pt1, wthr_pt2, wthr_pt3])
+        dyn_box("🛣️ Route Performance",           [rte_pt1,  rte_pt2,  rte_pt3])
 
 st.divider()
 
