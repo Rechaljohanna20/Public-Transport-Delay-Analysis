@@ -1,0 +1,42 @@
+{
+  "admin": {
+    "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "role": "admin",
+    "name": "Admin",
+    "created_at": "2026-06-03 14:51:40.868582"
+  },
+  "minnyyy20": {
+    "password": "b827545a22f48ce46440772466d8763776651ede3ba77e95dda25bba3a6ded6c",
+    "role": "user",
+    "name": "Rechal Johanna",
+    "created_at": "2026-06-03 15:01:20.653048",
+    "plan": "Premium"
+  },
+  "sampathhh": {
+    "password": "fcb23be992eacab04e3f59e346819ee781d9cc92f5161bbae810d85b4584aa6a",
+    "role": "user",
+    "name": "Sampath",
+    "created_at": "2026-06-03 15:02:49.259844",
+    "plan": "Premium"
+  },
+  "nithinnn": {
+    "password": "11d7a0f63e957da9ee166a19b554ec1f48209774cbd6913750812dd5710b1905",
+    "role": "user",
+    "name": "Nithin",
+    "created_at": "2026-06-03 15:07:04.455026"
+  },
+  "abhilashhh": {
+    "password": "f9a87a37970674a74265b45dea7ba40dad4038fd83768f349d698c7f15ccd917",
+    "role": "user",
+    "name": "Abhilash",
+    "created_at": "2026-06-03 16:40:10.128374",
+    "plan": "Basic"
+  },
+  "nani@gmail.com": {
+    "password": "906c4e7c629d78a5f1473084207015ea6b58c79fb52a9cee7e77114af346b27e",
+    "role": "user",
+    "name": "nani",
+    "created_at": "2026-06-03 17:07:15.757648",
+    "plan": "Basic"
+  }
+}
