@@ -1613,10 +1613,10 @@ else:
         if   page == "Revenue Dashboard":     page_revenue()
         elif page == "User Management":       page_user_management()
     else:
-        if   page == "Home":                  page_home()
+        if   page == "My Profile":            page_profile()
+        elif page == "Home":                  page_home()
         elif page == "Operational Dashboard": page_operational_dashboard()
         elif page == "Route Insights":        page_route_insights()
         elif page == "Insights":              page_insights()
-        elif page == "My Profile":            page_profile()
         elif page == "Payments":              page_payments()
         elif page == "About Us":              page_about()
