@@ -38,5 +38,21 @@
     "name": "nani",
     "created_at": "2026-06-03 17:07:15.757648",
     "plan": "Basic"
+  },
+  "abhi": {
+    "password": "fcfc9bc603672eeb9d3fa6bc7301e0c39dec6db35fda698c0dc5f9bb0adfcd60",
+    "role": "user",
+    "name": "abhi",
+    "created_at": "2026-06-11 13:05:45.930122",
+    "plan": "Free",
+    "transactions": []
+  },
+  "tyson": {
+    "password": "6b2a33f4d7ccddc176fdc65a2e6d9fdf39f161e5afeca296c50c3eea94d40924",
+    "role": "user",
+    "name": "tyson",
+    "created_at": "2026-06-11 13:16:13.721466",
+    "plan": "Free",
+    "transactions": []
   }
 }
