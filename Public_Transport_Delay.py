@@ -466,7 +466,7 @@ def render_sidebar():
         if st.session_state.role == "admin":
             pages = ["Revenue Dashboard", "User Management"]
         else:
-            pages = ["Home", "Operational Dashboard", "Route Insights", "Insights", "My Profile", "Payments", "About Us"]
+            pages = ["My Profile", "Home", "Operational Dashboard", "Route Insights", "Insights", "Payments", "About Us"]
 
         page = st.radio("Navigation", pages, label_visibility="collapsed")
         st.divider()
@@ -1390,15 +1390,6 @@ def page_profile():
         </p>
     </div>
     """, unsafe_allow_html=True)
-
-    st.subheader("📊 Feature Comparison")
-    comp = pd.DataFrame({
-        "Feature":  ["Routes visible", "Dashboard charts", "Route Insights", "Insights Page", "AI queries/day", "Price"],
-        "Free":     ["3", "2", "❌", "❌", "0", "₹0/month"],
-        "Basic":    ["10", "5", "✅", "❌", "5", "₹199/month"],
-        "Premium":  ["All", "All (7)", "✅", "✅", "Unlimited", "₹499/month"],
-    })
-    st.dataframe(comp.set_index("Feature"), use_container_width=True)
 
     st.divider()
     st.markdown("To upgrade or change your plan, visit the **Payments** page from the sidebar.")
