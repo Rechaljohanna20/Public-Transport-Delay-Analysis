@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -12,14 +11,6 @@ from datetime import datetime
 from supabase import create_client, Client
 # This reads the keys from your hidden .env file locally, 
 # or from the deployment platform settings when hosted!
-URL = os.environ.get("SUPABASE_URL")
-KEY = os.environ.get("SUPABASE_KEY")
-
-supabase = create_client(URL, KEY)
-try:
-    supabase = create_client(URL, KEY)
-except Exception as e:
-    st.error(f"Failed to connect to Supabase: {e}")
 
 # ======================================================
 # PAGE CONFIG
