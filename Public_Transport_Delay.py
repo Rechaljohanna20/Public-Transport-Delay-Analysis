@@ -9,10 +9,6 @@ import os
 import random
 import string
 from datetime import datetime
-from supabase import create_client
-
-import os
-from supabase import create_client
 
 # This reads the keys from your hidden .env file locally, 
 # or from the deployment platform settings when hosted!
