@@ -9,7 +9,7 @@ import os
 import random
 import string
 from datetime import datetime
-from supabase import create_client
+from supabase import create_client, Client
 # This reads the keys from your hidden .env file locally, 
 # or from the deployment platform settings when hosted!
 URL = os.environ.get("SUPABASE_URL")
